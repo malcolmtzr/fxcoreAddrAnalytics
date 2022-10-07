@@ -26,7 +26,7 @@ const generateValidatorsFile = async (url) => {
     const result_ = await generateValidators(url);
     console.log("Total UNIQUE Delegators: " + countUniqueDelegatorsFromValidators(result_));
     //write Validators file
-    fs.writeFile("mainnet_fri_validatorsList2.json", JSON.stringify(result_, null, '\t'), (error) => {
+    fs.writeFile("mainnet_fri_validatorsList.json", JSON.stringify(result_, null, '\t'), (error) => {
         if (error) {
             throw error;
         }
@@ -103,10 +103,11 @@ const generateDelegatorFiles = async(validatorFileLoc) => {
 
 const main = async () => {
     
-    await generateValidatorsFile(MAINNET_VALIDATORS);
+    //await generateValidatorsFile(MAINNET_VALIDATORS);
 
     //CHANGE FILE NAME TO APPRORIATE NAME
     generateDelegatorFiles("./mainnet_fri_validatorsList2.json");
+    
 }
 
 main();

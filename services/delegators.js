@@ -66,3 +66,11 @@ export const compareCommonDelegatorAddr = (min, ...arrs) =>
 [...new Set(arrs.flat())].filter(e =>
     arrs.reduce((acc, cur) =>
         acc + cur.includes(e), 0) >= min);
+        
+//Example:
+//To check how many delegated in multiple pools:
+// console.log("Delegated in more than 2 pools:");
+// console.log(compareCommonAddr(2, unique2000FX, unique1000FX, unique500FX).length);
+// console.log("Delegated in more than 3 pools:");
+// console.log(compareCommonAddr(3, unique2000FX, unique1000FX, unique500FX).length);
+// console.log("");
