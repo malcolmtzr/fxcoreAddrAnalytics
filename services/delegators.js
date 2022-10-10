@@ -59,14 +59,14 @@ export const getUniqueDelegatorsFromDelegations = (obj) => {
 
 export const compareCommonDelegatorAddr = (min, ...arrs) =>
 //get array of unique addrs, and filter.
-//For each unique addr, check if present in each of array
-//true = +1
-//if more than specified min (minimum arrays an element has to be appearing),
+//For each unique addr, check if present in each of the supplied arrays.
+//If true, true = +1
+//If more than specified min (minimum arrays an element has to be appearing),
 //filer them into the returned array.
 [...new Set(arrs.flat())].filter(e =>
     arrs.reduce((acc, cur) =>
         acc + cur.includes(e), 0) >= min);
-        
+
 //Example:
 //To check how many delegated in multiple pools:
 // console.log("Delegated in more than 2 pools:");
